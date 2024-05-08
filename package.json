@@ -1,6 +1,6 @@
 {
   "name": "database-funnel",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "mysql made easy.",
   "main": "index.js",
   "directories": {
@@ -10,5 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.9.7",
+    "net": "^1.0.2",
+    "tsl": "^0.0.10"
+  }
 }
