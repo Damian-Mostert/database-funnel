@@ -1,0 +1,14 @@
+{
+  "name": "database-funnel",
+  "version": "1.0.3",
+  "description": "mysql made easy.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

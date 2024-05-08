@@ -1,3 +1,7 @@
-import { Model } from "./lib/model";
-import { Blueprint } from "./lib/blueprint";
-export { Model, Blueprint };
+import { Model, init } from "./lib/model";
+export { Model };
+const database = {
+  Model,
+  init,
+};
+export default database;
