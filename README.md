@@ -1,16 +1,20 @@
-# DATABASE FUNNEl
+# Database Funnel
 
-A tool to use mysql with node.js
+Database Funnel is a lightweight Node.js library designed to simplify MySQL database operations within Node.js applications. With Database Funnel, you can effortlessly integrate MySQL databases into your Node.js projects, making tasks like CRUD operations, data retrieval, and schema management more intuitive and efficient.
 
-### install
+## Installation
 
-```plain
-npm i database-funnel
+You can install Database Funnel via npm:
+
+```bash
+npm install database-funnel
 ```
 
-### initializing
+## Getting Started
 
-```js
+To begin using Database Funnel in your Node.js application, you need to initialize it with your MySQL database connection details. Here's how:
+
+```javascript
 import database from "database-funnel";
 
 database.init({
@@ -22,81 +26,59 @@ database.init({
 });
 ```
 
-### creating a model
+## Basic Operations
 
-Models will auto migrate to the database, use it as follows:
+Database Funnel provides methods for performing basic CRUD operations:
 
-```js
-new Model("table_name", {
-  /*Schema*/
-});
-```
+### Retrieve Data
 
-#### example
+- **get:** Retrieve all records from the table.
+- **first:** Retrieve the first record from the table.
 
-```js
-export const User = new Model("users", {
-  name: ["string"], //varchar(300)
-  surname: ["string"], //varchar(300)
-  email: ["string", "unique"], //adds unique
-  male: ["boolean", null], //nullable
-  female: ["boolean", null], //nullable
-  details: ["text"], //Text
-  age: ["number"], //int
-  diff: ["double", "default:0.1"], //double with default 0.1
-});
-```
-
-### using a model
-
-#### get
-
-gets whole table.
-
-```js
+```javascript
 await User.get();
-```
-
-#### first
-
-gets first result.
-
-```js
 await User.first();
 ```
 
-### make
+### Create Data
 
-makes data in table.
+- **make:** Create a new record in the table.
 
-```js
+```javascript
 await User.make({
-  name: "Jhonny",
+  name: "Johnny",
 });
 ```
 
-#### where
+### Filter Data
 
-adds a where query; key, operator, value
+- **where:** Filter records based on conditions.
 
-```js
-const users = await User.where("name", "=", "Jhon").get();
+```javascript
+const users = await User.where("name", "=", "John").get();
+const user = await User.where("name", "=", "John").first();
 ```
 
-```js
-const user = await User.where("name", "=", "Jhon").first();
+### Sort Data
+
+- **orderBy:** Sort records based on a specified column.
+
+```javascript
+await User.where("name", "=", "John").orderBy("name", "asc").get();
 ```
 
-#### orderBy
-used to order results by values
-```js
-await User.where("name", "=", "Jhon")
-  .orderBy("name" /*"asc" or "dsc" default is "asc"*/)
-  .get();
+### Update Data
+
+- **update:** Update records that match specified conditions.
+
+```javascript
+await User.where("name", "=", "John").update({ name: "Demi" });
 ```
 
-### update
-used to update all or with query
-```js
-await User.where("name", "=", "Jhon").update({ name: "Demi" });
-```
+## Contribution
+
+Contributions to Database Funnel are welcome! Feel free to open issues for feature requests, bug fixes, or general improvements.
+
+## License
+
+Database Funnel is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
