@@ -24,7 +24,42 @@ database.init({
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
 });
+```## Getting started
+
+To begin using Database Funnel in your Node.js application, you need to initialize it with your MySQL database connection details. Here's how:
+
+```js
+import database from "database-funnel";
+
+database.init({
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+});
 ```
+
+### Creating Models
+
+In Database Funnel, models represent database tables. Defining a model automatically creates the corresponding table in the database. Here's an example of how to create a model:
+
+```js
+import { Model } from "database-funnel";
+
+const User = new Model("users", {
+  name: ["string"],      // VARCHAR(300)
+  surname: ["string"],   // VARCHAR(300)
+  email: ["string", "unique"], // Adds uniqueness constraint
+  male: ["boolean", null],    // Nullable
+  female: ["boolean", null],  // Nullable
+  details: ["text"],          // TEXT
+  age: ["number"],            // INT
+  diff: ["double", "default:0.1"], // DOUBLE with default value 0.1
+});
+
+```
+
 
 ## Basic Operations
 
