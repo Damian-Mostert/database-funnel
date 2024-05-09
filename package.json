@@ -1,6 +1,6 @@
 {
   "name": "database-funnel",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Database Funnel is a lightweight Node.js library designed to simplify MySQL database operations within Node.js applications. With Database Funnel, you can effortlessly integrate MySQL databases into your Node.js projects, making tasks like CRUD operations, data retrieval, and schema management more intuitive and efficient.",
   "main": "index.js",
   "directories": {
